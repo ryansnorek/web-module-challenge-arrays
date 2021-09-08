@@ -134,11 +134,11 @@ Use the removeFlavorByName function below to do the following:
 */
 
 function removeFlavorByName(array, flavor) {
-  
-
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === flavor) array.splice(i, 1);
+  }
   return array;
 }
-removeFlavorByName(originalFlavors, 'Vanilla')
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -161,10 +161,13 @@ Use the filterByWord function below to do the following:
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-  /*your code here*/
+function filterByWord(array, string) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].includes(string)) newArray.push(array[i]);
+  }
+  return newArray;
 }
-
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
 
@@ -178,10 +181,14 @@ Use the getAverageWordLength function below to do the following:
   For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-  /*code here*/
-}
+function getAverageWordLength(array) {
+  let sum = 0;
 
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i].length;
+  }  
+  return sum/array.length;
+}
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
 Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors 
@@ -196,8 +203,14 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-  /*code here*/
+function getRandomFlavors(a1, a2, a3, a4) {
+  const randomFlavors = [];
+  let pick = Math.floor(Math.random() * (a1.length + 1));
+  randomFlavors.push(a1[pick]);
+  randomFlavors.push(a2[pick]);
+  randomFlavors.push(a3[pick]);
+  randomFlavors.push(a4[pick]);
+  return randomFlavors;
 }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
